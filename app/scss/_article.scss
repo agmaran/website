@@ -1,0 +1,59 @@
+.articles {
+    background-color: $veryLightGray;
+}
+.article {
+    &__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.875rem; // Gap between each grid item
+        @include breakpoint-up(medium) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include breakpoint-up(large) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+    &__item {
+        background-color: $white;
+        border-radius: 0.3125rem;
+        box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.15);
+        overflow: hidden; //To make sure the actual round corners show up
+        transition: all 150ms ease-in-out; //So the hover is smoother
+        &:hover {
+            transform: scale(1.05); // scale(1) won't change anything, it has to be more than 1
+        }
+    }
+    &__image {
+        height: 12.5rem;
+        background-size: cover; // Makes sure the background image takes up the entire grid.
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    &__text {
+        color: $grayishBlue;
+        padding-left: 1.875rem;
+        padding-top: 1.875rem;
+        padding-right: 1.875rem;
+        padding-bottom: 2.5rem;
+
+        @include breakpoint-up(medium) {
+            padding: 1.875rem 1.5625rem;
+        }
+
+        @include breakpoint-up(large) {
+        }
+    }
+    &__author {
+        font-size: 0.625rem;
+        margin-bottom: 0.75rem;
+    }
+    &__title {
+        color: $darkBlue;
+        font-size: 1.0625rem;
+        line-height: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    &__description {
+        font-size: 0.8125rem;
+    }
+}
